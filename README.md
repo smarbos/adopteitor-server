@@ -1,4 +1,4 @@
-# adopteitor
+# adopteitor-server
 
 ### Instalacion
 
