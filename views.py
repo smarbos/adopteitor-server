@@ -1,8 +1,9 @@
 from django.contrib.auth.models import User, Group
 from adopteitor_core.models import Animal
 from adopteitor_core.models import AnimalFoto
+from adopteitor_core.models import FormularioAdopcion
 from rest_framework import viewsets, generics
-from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer
+from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer, FormularioAdopcionSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -31,5 +32,19 @@ class AnimalViewSet(viewsets.ModelViewSet):
         galgo_id = self.request.query_params.get('galgo_id', None)
         if galgo_id is not None:
             queryset = Animal.objects.filter(id=galgo_id)
+
+        return queryset
+
+class FormularioAdopcionViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = FormularioAdopcion.objects.all()
+    serializer_class = FormularioAdopcionSerializer
+    def get_queryset(self):
+        queryset = FormularioAdopcion.objects.all()
+        form_id = self.request.query_params.get('form_id', None)
+        if form_id is not None:
+            queryset = FormularioAdopcion.objects.filter(id=form_id)
 
         return queryset
