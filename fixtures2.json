@@ -1,0 +1,306 @@
+[
+{
+  "fields": {
+    "nombre": "Anakin",
+    "desc": "Anakin Descripcion Anakin Descripcion Anakin Descripcion Anakin Descripcion",
+    "genero": "m",
+    "fecha_ingreso": "2016-02-12T19:18:16Z",
+    "fecha_nacimiento": "2015-12-08T19:18:14Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 1
+},
+{
+  "fields": {
+    "nombre": "Pep",
+    "desc": "atest",
+    "genero": "m",
+    "fecha_ingreso": "2016-02-12T19:35:30Z",
+    "fecha_nacimiento": "2000-02-12T19:35:27Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 2
+},
+{
+  "fields": {
+    "nombre": "Daisy",
+    "desc": "Daisy Daisy DaisyDaisy Daisy DaisyDaisy Daisy DaisyDaisy Daisy DaisyDaisy Daisy DaisyDaisy Daisy Daisy",
+    "genero": "h",
+    "fecha_ingreso": "2016-02-12T19:39:46Z",
+    "fecha_nacimiento": "2014-02-12T19:39:40Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 3
+},
+{
+  "fields": {
+    "nombre": "Lolita",
+    "desc": "Lolita Desc Lolita Desc Lolita Desc Lolita Desc Lolita Desc Lolita Desc Lolita Desc Lolita Desc Lolita Desc Lolita Desc Lolita Desc Lolita Desc ",
+    "genero": "h",
+    "fecha_ingreso": "2016-02-12T19:40:11Z",
+    "fecha_nacimiento": "2013-02-12T19:40:05Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 4
+},
+{
+  "fields": {
+    "nombre": "Martiniano",
+    "desc": "Martiniano Desc Martiniano Desc Martiniano Desc Martiniano Desc Martiniano Desc ",
+    "genero": "m",
+    "fecha_ingreso": "2016-02-12T19:40:30Z",
+    "fecha_nacimiento": "2013-02-12T19:40:24Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 5
+},
+{
+  "fields": {
+    "nombre": "Scooby",
+    "desc": "Scooby Desc Scooby Desc Scooby Desc Scooby Desc Scooby Desc ",
+    "genero": "m",
+    "fecha_ingreso": "2016-02-12T19:40:49Z",
+    "fecha_nacimiento": "2013-02-12T19:40:44Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 6
+},
+{
+  "fields": {
+    "nombre": "Uhu",
+    "desc": "Uhu Desc Uhu Desc Uhu Desc Uhu Desc Uhu Desc Uhu Desc ",
+    "genero": "m",
+    "fecha_ingreso": "2016-02-12T19:41:06Z",
+    "fecha_nacimiento": "2015-02-12T19:41:02Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 7
+},
+{
+  "fields": {
+    "nombre": "Yambao",
+    "desc": "Yambao Desc Yambao Desc Yambao Desc Yambao Desc Yambao Desc Yambao Desc ",
+    "genero": "m",
+    "fecha_ingreso": "2016-02-12T19:41:25Z",
+    "fecha_nacimiento": "2012-02-12T19:41:19Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 8
+},
+{
+  "fields": {
+    "nombre": "Toto",
+    "desc": "Toto es un gran perro",
+    "genero": "m",
+    "fecha_ingreso": "2016-04-03T18:16:42.381Z",
+    "fecha_nacimiento": "2016-04-20T18:16:35Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 9
+},
+{
+  "fields": {
+    "nombre": "Rucula",
+    "desc": "Rucula es una perrita chiquita y hermosa.",
+    "genero": "h",
+    "fecha_ingreso": "2016-04-03T18:16:58.933Z",
+    "fecha_nacimiento": "2016-04-22T18:16:50Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 10
+},
+{
+  "fields": {
+    "nombre": "Nichol",
+    "desc": "The aThe animal \"[10] Rucula\" was added successfullyThe animal \"[10] Rucula\" was added successfully. You may add another animal below.. You may addThe animal \"[10] Rucula\" was added successfully. You may add another animal below. another animal below.nimal \"[10] Rucula\" was added successfully. You may add another animal below.",
+    "genero": "h",
+    "fecha_ingreso": "2016-04-03T18:35:23.800Z",
+    "fecha_nacimiento": "2016-04-03T18:35:01Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 11
+},
+{
+  "fields": {
+    "nombre": "Ferdinand",
+    "desc": " of putting static files into production is simple: run the collectstatic command when static files change, then arrange for the collected static files directory (STATIC_ROOT) to be moved to the static file server and served. Depending on STATICFILES_STORAGE, files may need to be moved to a new location manually or the post_process method of the Storage class might take care of that.\r\n",
+    "genero": "m",
+    "fecha_ingreso": "2016-04-03T18:35:40.501Z",
+    "fecha_nacimiento": "2016-04-03T18:35:30Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 12
+},
+{
+  "fields": {
+    "nombre": "Zarasa",
+    "desc": "nce you\u2019ve got mod_wsgi installed and activated, edit your Apache server\u2019s httpd.conf file and add the following. If you are using a version of Apache older than 2.4, replace Require all granted with Allow from all and also add the line Order deny,allow above it.",
+    "genero": "h",
+    "fecha_ingreso": "2016-04-03T18:35:57.362Z",
+    "fecha_nacimiento": "2016-04-03T18:35:49Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 13
+},
+{
+  "fields": {
+    "nombre": "Plunker",
+    "desc": "meal 1: salad in pitta bread\r\nmeal 2: avacado maki with ketchup\r\nmeal 3: avacado maki drizzled with cheese sauce\r\nmeal 4: onion soup a la king\r\nmeal 5: wiener schnitzel with chips\r\nmeal 6: bak choi in pitta bread\r\nmeal 7: cheeseburger with ketchup\r\nmeal 8: salad drizzled with cheese sauce\r\nmeal 9: salad with chips",
+    "genero": "m",
+    "fecha_ingreso": "2016-04-03T18:36:16.054Z",
+    "fecha_nacimiento": "2016-04-03T18:36:07Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 14
+},
+{
+  "fields": {
+    "nombre": "Roggina",
+    "desc": "Roggina rogginaRoggina rogginaRoggina rogginaRoggina rogginaRoggina rogginaRoggina rogginaRoggina rogginaRoggina rogginaRoggina rogginaRoggina rogginaRoggina roggina",
+    "genero": "h",
+    "fecha_ingreso": "2016-04-03T18:36:29.467Z",
+    "fecha_nacimiento": "2016-04-03T18:36:24Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 15
+},
+{
+  "fields": {
+    "nombre": "Ruperto",
+    "desc": "adasdasdasda",
+    "genero": "m",
+    "fecha_ingreso": "2016-04-03T18:36:46.890Z",
+    "fecha_nacimiento": "2016-04-03T18:36:45Z"
+  },
+  "model": "adopteitor_core.animal",
+  "pk": 16
+},
+{
+  "fields": {
+    "imagen": "images/Anakin_full_0akO2y8.jpg",
+    "galgo": 1
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 1
+},
+{
+  "fields": {
+    "imagen": "images/Daisy_full.jpg",
+    "galgo": 3
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 2
+},
+{
+  "fields": {
+    "imagen": "images/Lolita_full.jpg",
+    "galgo": 4
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 3
+},
+{
+  "fields": {
+    "imagen": "images/Matiniano_full.jpg",
+    "galgo": 5
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 4
+},
+{
+  "fields": {
+    "imagen": "images/Scooby_full.jpg",
+    "galgo": 6
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 5
+},
+{
+  "fields": {
+    "imagen": "images/Uhu_full.jpg",
+    "galgo": 7
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 6
+},
+{
+  "fields": {
+    "imagen": "images/Yambao_full.jpg",
+    "galgo": 8
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 7
+},
+{
+  "fields": {
+    "imagen": "images/Uhu.jpg",
+    "galgo": 2
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 8
+},
+{
+  "fields": {
+    "imagen": "images/malva.jpg",
+    "galgo": 9
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 9
+},
+{
+  "fields": {
+    "imagen": "images/malva_b26MdYU.jpg",
+    "galgo": 10
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 10
+},
+{
+  "fields": {
+    "imagen": "images/thepep.jpg",
+    "galgo": 11
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 11
+},
+{
+  "fields": {
+    "imagen": "images/malva_H33bnWH.jpg",
+    "galgo": 12
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 12
+},
+{
+  "fields": {
+    "imagen": "images/malva_djjnpsS.jpg",
+    "galgo": 13
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 13
+},
+{
+  "fields": {
+    "imagen": "images/thepep",
+    "galgo": 14
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 14
+},
+{
+  "fields": {
+    "imagen": "images/malva_tjerVTY.jpg",
+    "galgo": 15
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 15
+},
+{
+  "fields": {
+    "imagen": "images/malva_BSMhn8B.jpg",
+    "galgo": 16
+  },
+  "model": "adopteitor_core.animalfoto",
+  "pk": 16
+}
+]
