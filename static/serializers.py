@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User, Group
 from adopteitor_core.models import Animal
 from adopteitor_core.models import AnimalFoto
+from adopteitor_core.models import FormularioAdopcion
 from rest_framework import serializers
 
 
@@ -27,3 +28,8 @@ class AnimalFotoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Animal
         fields = ('id','fotos')
+
+class FormularioAdopcionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = FormularioAdopcion
+        fields = ('id', 'galgo', 'nombre', 'apellido', 'fecha_nacimiento', 'telefono', "email", "ciudad")
