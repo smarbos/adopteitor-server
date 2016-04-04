@@ -7,3 +7,4 @@ django-cors-headers==1.1.0
 Pillow==1.7.8
 django-multiupload==0.5
 flake8==2.5.0
+django-phonenumber-field==1.1.0
