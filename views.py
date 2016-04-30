@@ -27,11 +27,32 @@ class AnimalViewSet(viewsets.ModelViewSet):
     """
     queryset = Animal.objects.all()
     serializer_class = AnimalSerializer
+    class Meta:
+        model = Animal
+        fields = ('id','nombre', 'genero', 'fecha_nacimiento', 'desc', 'fotos', "fecha_ingreso", "edad", "etapa")
     def get_queryset(self):
         queryset = Animal.objects.all()
         galgo_id = self.request.query_params.get('galgo_id', None)
+        galgo_genero = self.request.query_params.get('galgo_genero', None)
+        galgo_etapa = self.request.query_params.get('galgo_etapa', None)
+        galgo_filter = self.request.query_params.get('galgo_filter', None)
         if galgo_id is not None:
             queryset = Animal.objects.filter(id=galgo_id)
+        if galgo_genero is not None:
+            queryset = Animal.objects.filter(genero=galgo_genero)
+        if galgo_etapa is not None:
+            queryset = Animal.objects.filter(etapa=galgo_etapa)
+        if galgo_filter == "a":
+            queryset = Animal.objects.filter(etapa=galgo_filter)
+        elif galgo_filter == "c":
+            queryset = Animal.objects.filter(etapa=galgo_filter)
+        elif galgo_filter == "h":
+            queryset = Animal.objects.filter(genero=galgo_filter)
+        elif galgo_filter == "m":
+            queryset = Animal.objects.filter(genero=galgo_filter)
+        elif galgo_filter == "*":
+            queryset = Animal.objects.all()
+
 
         return queryset
 
