@@ -7,16 +7,28 @@ class Animal(models.Model):
     ('m', 'macho'),
     ('h', 'hembra')
     )
+    etapa_opciones =  (
+    ('c', 'cachorro'),
+    ('a', 'adulto')
+    )
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=255)
     genero = models.CharField(max_length=1, choices=genero_opciones)
     fecha_nacimiento = models.DateTimeField(auto_now=False, auto_now_add=False)
     desc = models.TextField(max_length=1024)
     fecha_ingreso = models.DateTimeField(auto_now=True, auto_now_add=False)
+    etapa = models.CharField(max_length=1, choices=etapa_opciones)
 
     def calcular_edad(self):
         today=date.today();
         return today.year - self.fecha_nacimiento.year - ((today.month, today.day) < (self.fecha_nacimiento.month, self.fecha_nacimiento.day))
+
+    def calcular_etapa(self):
+        today=date.today();
+        if today.year - self.fecha_nacimiento.year - ((today.month, today.day) < (self.fecha_nacimiento.month, self.fecha_nacimiento.day)) < 1:
+            return str("c");
+        else:
+            return str("a");
 
     def __unicode__(self):
         return "[" + str(self.id) + "] " + self.nombre
