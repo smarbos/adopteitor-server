@@ -16,12 +16,12 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ('url', 'name')
 
-class AnimalSerializer(serializers.HyperlinkedModelSerializer):
+class AnimalSerializer(serializers.ModelSerializer):
     fotos = serializers.StringRelatedField(many=True)
     edad = serializers.IntegerField(source="calcular_edad")
     class Meta:
         model = Animal
-        fields = ('id','nombre', 'genero', 'fecha_nacimiento', 'desc', 'fotos', "fecha_ingreso", "edad")
+        fields = ('id','nombre', 'genero', 'fecha_nacimiento', 'desc', 'fotos', "fecha_ingreso", "edad", "etapa")
 
 class AnimalFotoSerializer(serializers.ModelSerializer):
     fotos = serializers.StringRelatedField(many=True)
