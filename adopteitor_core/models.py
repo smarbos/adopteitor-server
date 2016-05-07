@@ -11,6 +11,11 @@ class Animal(models.Model):
     ('c', 'cachorro'),
     ('a', 'adulto')
     )
+    estado_opciones =  (
+    ('1', 'En adopcion'),
+    ('2', 'En Transito'),
+    ('3', 'Adoptado')
+    )
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=255)
     genero = models.CharField(max_length=1, choices=genero_opciones)
@@ -18,6 +23,7 @@ class Animal(models.Model):
     desc = models.TextField(max_length=1024)
     fecha_ingreso = models.DateTimeField(auto_now=True, auto_now_add=False)
     etapa = models.CharField(max_length=1, choices=etapa_opciones)
+    estado = models.CharField(max_length=1, choices=estado_opciones)
 
     def calcular_edad(self):
         today=date.today();
@@ -52,7 +58,7 @@ class FormularioAdopcion(models.Model):
     ('Mechonge', 'Mechonge')
     )
     id = models.AutoField(primary_key=True)
-    galgo = models.ForeignKey(Animal, blank=True, null=True, related_name='formularios')
+    animal = models.ForeignKey(Animal, blank=True, null=True, related_name='formularios')
     nombre = models.CharField(max_length=255)
     apellido = models.CharField(max_length=255)
     fecha_nacimiento = models.DateTimeField(auto_now=False, auto_now_add=False)
@@ -61,4 +67,22 @@ class FormularioAdopcion(models.Model):
     ciudad = models.CharField(max_length=255, choices=ciudad_opciones)
 
     def __unicode__(self):
-        return "[Formulario adopcion " + str(self.galgo) + "] "
+        return "[Formulario adopcion " + str(self.animal) + "] "
+
+class Persona(models.Model):
+    ciudad_opciones =  (
+    ('C.A.B.A.', 'C.A.B.A.'),
+    ('La Plata', 'La Plata'),
+    ('Mar del Plata', 'Mar del Plata'),
+    ('Mechonge', 'Mechonge')
+    )
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=255)
+    apellido = models.CharField(max_length=255)
+    fecha_nacimiento = models.DateTimeField(auto_now=False, auto_now_add=False)
+    telefono = PhoneNumberField()
+    email = models.EmailField(max_length=254)
+    ciudad = models.CharField(max_length=255, choices=ciudad_opciones)
+
+    def __unicode__(self):
+        return "[Persona] Nombre: "  + str(self.nombre) + str(self.apellido)
