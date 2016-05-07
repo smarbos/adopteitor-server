@@ -1,9 +1,7 @@
 from django.contrib.auth.models import User, Group
-from adopteitor_core.models import Animal
-from adopteitor_core.models import AnimalFoto
-from adopteitor_core.models import FormularioAdopcion
+from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Persona
 from rest_framework import viewsets, generics
-from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer, FormularioAdopcionSerializer
+from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer, FormularioAdopcionSerializer, PersonaSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -56,10 +54,18 @@ class AnimalViewSet(viewsets.ModelViewSet):
 
         return queryset
 
+class PersonaViewSet(viewsets.ModelViewSet):
+    queryset = Persona.objects.all()
+    serializer_class = PersonaSerializer
+    def get_queryset(self):
+        queryset = FormularioAdopcion.objects.all()
+        form_id = self.request.query_params.get('form_id', None)
+        if form_id is not None:
+            queryset = FormularioAdopcion.objects.filter(id=form_id)
+
+        return queryset
+
 class FormularioAdopcionViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
     queryset = FormularioAdopcion.objects.all()
     serializer_class = FormularioAdopcionSerializer
     def get_queryset(self):
@@ -68,4 +74,16 @@ class FormularioAdopcionViewSet(viewsets.ModelViewSet):
         if form_id is not None:
             queryset = FormularioAdopcion.objects.filter(id=form_id)
 
+        return queryset
+
+class AdoptarAnimalViewSet(viewsets.ModelViewSet):
+    queryset = Animal.objects.all()
+    serializer_class = FormularioAdopcionSerializer
+    def get_queryset(self):
+        animalID = self.request.query_params.get('animal_id', None)
+        personaID = self.request.query_params.get('persona_id', None)
+        animal = Animal.objects.get(id=animalID)
+        persona = Persona.objects.get(id=personaID)
+        formularioAdopcion = FormularioAdopcion.objects.create(animal=animal, nombre=persona.nombre, apellido=persona.apellido, fecha_nacimiento=persona.fecha_nacimiento, telefono=persona.telefono, email=persona.email, ciudad=persona.ciudad)
+        queryset = FormularioAdopcion.objects.filter(id=formularioAdopcion.id)
         return queryset

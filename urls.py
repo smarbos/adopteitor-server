@@ -23,8 +23,11 @@ import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
-router.register(r'Animal', views.AnimalViewSet)
+router.register(r'Animal', views.AnimalViewSet, base_name="Animal")
+router.register(r'Persona', views.PersonaViewSet)
 router.register(r'FormularioAdopcion', views.FormularioAdopcionViewSet)
+router.register(r'AdoptarAnimal', views.AdoptarAnimalViewSet)
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
    url(r'^', include(router.urls)),
