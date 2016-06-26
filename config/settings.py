@@ -27,12 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-MEDIA_ROOT = '/home/adopteitor/server/uploads/'
+MEDIA_ROOT = '/home/smarbos/devel/adopteitor-server/uploads/'
 MEDIA_URL   = '/uploads/'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATICFILES_DIRS = [
-    '/home/adopteitor/server/',
+    '/home/smarbos/devel/adopteitor-server/',
 ]
 
 # Application definition
@@ -45,9 +45,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'adopteitor_core',
     'corsheaders',
-    'multiupload'
+    'multiupload',
+    'authentication'
 )
 
 
@@ -85,7 +87,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
@@ -102,7 +103,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ar'
 
 TIME_ZONE = 'UTC'
 
@@ -166,3 +167,26 @@ LOGGING = {
         },
     }
 }
+
+REST_FRAMEWORK = { 'DEFAULT_PERMISSION_CLASSES': [], 'DEFAULT_AUTHENTICATION_CLASSES': [], }
+
+AUTH_USER_MODEL = 'authentication.Account'
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.DjangoModelPermissions',
+#     )
+# }
+
+# REST_FRAMEWORK = {
+#    'DEFAULT_AUTHENTICATION_CLASSES': (
+#        'rest_framework.authentication.TokenAuthentication',
+#    ),
+#    'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.IsAdminUser'
+#    ),
+# }
+
+# AUTHENTICATION_BACKENDS = (
+#         'authentication.Account',
+# )

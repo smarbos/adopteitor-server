@@ -27,12 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-MEDIA_ROOT = '/home/adopteitor/server/uploads/'
+MEDIA_ROOT = '/home/smarbos/devel/adopteitor-server/uploads/'
 MEDIA_URL   = '/uploads/'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATICFILES_DIRS = [
-    '/home/adopteitor/server/',
+    '/home/smarbos/devel/adopteitor-server/',
 ]
 
 # Application definition

@@ -19,6 +19,10 @@ from django.contrib import admin
 from rest_framework import routers
 from rest_framework.urlpatterns import format_suffix_patterns
 import views
+from authentication.views import AccountViewSet, LoginView, LogoutView
+
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -27,9 +31,13 @@ router.register(r'Animal', views.AnimalViewSet, base_name="Animal")
 router.register(r'Persona', views.PersonaViewSet)
 router.register(r'FormularioAdopcion', views.FormularioAdopcionViewSet)
 router.register(r'AdoptarAnimal', views.AdoptarAnimalViewSet)
+router.register(r'accounts', AccountViewSet)
 
 urlpatterns = [
+ url(r'^api/v1/', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),
    url(r'^', include(router.urls)),
    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+   url(r'^login/$', LoginView.as_view(), name='login'),
+   url(r'^logout/$', LogoutView.as_view(), name='logout'),
 ]

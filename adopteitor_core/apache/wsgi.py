@@ -12,3 +12,4 @@ sys.path.append('/home/adopteitor')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'adopteitor.apache.override'
 import django.core.handlers.wsgi
 application = django.core.handlers.wsgi.WSGIHandler()
+WSGIPassAuthorization = 'on'

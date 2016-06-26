@@ -2,7 +2,8 @@ from django.contrib.auth.models import User, Group
 from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Persona
 from rest_framework import viewsets, generics
 from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer, FormularioAdopcionSerializer, PersonaSerializer
-
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 class UserViewSet(viewsets.ModelViewSet):
     """
