@@ -15,6 +15,9 @@ class Animal(models.Model):
     ('1', 'En adopcion'),
     ('2', 'En Transito'),
     ('3', 'Adoptado')
+    ubicacion_opciones =  (
+    ('buenos-aires', 'Buenos Aires'),
+    ('neuquen', 'Neuquen')
     )
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=255)
@@ -24,6 +27,7 @@ class Animal(models.Model):
     fecha_ingreso = models.DateTimeField(auto_now=True, auto_now_add=False)
     etapa = models.CharField(max_length=1, choices=etapa_opciones)
     estado = models.CharField(max_length=1, choices=estado_opciones)
+    ubicacion = models.CharField(max_length=255, choices=ubicacion_opciones)
 
     def calcular_edad(self):
         today=date.today();
