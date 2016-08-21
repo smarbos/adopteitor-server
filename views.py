@@ -3,7 +3,9 @@ from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Perso
 from rest_framework import viewsets, generics
 from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer, FormularioAdopcionSerializer, PersonaSerializer
 from django.contrib.auth import get_user_model
+from django.http import JsonResponse
 User = get_user_model()
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -28,7 +30,7 @@ class AnimalViewSet(viewsets.ModelViewSet):
     serializer_class = AnimalSerializer
     class Meta:
         model = Animal
-        fields = ('id','nombre', 'genero', 'fecha_nacimiento', 'desc', 'fotos', "fecha_ingreso", "edad", "etapa")
+        fields = ('id','nombre', 'genero', 'fecha_nacimiento', 'desc', 'fotos', "fecha_ingreso", "edad", "etapa", "ubicacion")
     def get_queryset(self):
         queryset = Animal.objects.all()
         galgo_id = self.request.query_params.get('galgo_id', None)
@@ -51,7 +53,10 @@ class AnimalViewSet(viewsets.ModelViewSet):
             queryset = Animal.objects.filter(genero=galgo_filter)
         elif galgo_filter == "*":
             queryset = Animal.objects.all()
-
+        elif galgo_filter == "buenos-aires":
+            queryset = Animal.objects.filter(ubicacion="buenos-aires")
+        elif galgo_filter == "neuquen":
+            queryset = Animal.objects.filter(ubicacion="neuquen")
 
         return queryset
 
