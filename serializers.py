@@ -21,7 +21,7 @@ class AnimalSerializer(serializers.ModelSerializer):
     edad = serializers.IntegerField(source="calcular_edad")
     class Meta:
         model = Animal
-        fields = ('id','nombre', 'genero', 'fecha_nacimiento', 'desc', 'fotos', "fecha_ingreso", "edad", "etapa")
+        fields = ('id','nombre', 'genero', 'fecha_nacimiento', 'desc', 'fotos', "fecha_ingreso", "edad", "etapa", "ubicacion")
 
 class AnimalFotoSerializer(serializers.ModelSerializer):
     fotos = serializers.StringRelatedField(many=True)
