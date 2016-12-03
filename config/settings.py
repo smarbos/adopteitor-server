@@ -47,7 +47,8 @@ INSTALLED_APPS = (
     'rest_framework',
     'adopteitor_core',
     'corsheaders',
-    'multiupload'
+    'multiupload',
+    'sslserver'
 )
 
 
