@@ -48,9 +48,13 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'adopteitor_core',
     'corsheaders',
+<<<<<<< HEAD
     'multiupload',
     'authentication'
     # 'sslserver'
+=======
+    'multiupload'
+>>>>>>> disabled https
 )
 
 
@@ -168,7 +172,6 @@ LOGGING = {
         },
     }
 }
-
 # REST_FRAMEWORK = { 'DEFAULT_PERMISSION_CLASSES': [], 'DEFAULT_AUTHENTICATION_CLASSES': [], }
 #
 # AUTH_USER_MODEL = 'authentication.Account'
