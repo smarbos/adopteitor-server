@@ -47,7 +47,8 @@ INSTALLED_APPS = (
     'rest_framework',
     'adopteitor_core',
     'corsheaders',
-    'multiupload'
+    'multiupload',
+    'sslserver'
 )
 
 
@@ -164,5 +165,16 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
+    }
+}
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'mycache',
     }
 }
