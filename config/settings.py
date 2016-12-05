@@ -49,11 +49,16 @@ INSTALLED_APPS = (
     'adopteitor_core',
     'corsheaders',
 <<<<<<< HEAD
+<<<<<<< HEAD
     'multiupload',
     'authentication'
     # 'sslserver'
 =======
     'multiupload'
+>>>>>>> disabled https
+=======
+    'multiupload',
+    'sslserver'
 >>>>>>> disabled https
 )
 
