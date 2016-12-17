@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'corsheaders',
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     'multiupload',
     'authentication'
     # 'sslserver'
@@ -59,6 +60,9 @@ INSTALLED_APPS = (
 =======
     'multiupload',
     'sslserver'
+>>>>>>> disabled https
+=======
+    'multiupload'
 >>>>>>> disabled https
 )
 
@@ -95,7 +99,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'config.wsgi.application'
+WSGI_APPLICATION = 'adopteitor.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -202,6 +206,11 @@ LOGGING = {
 # SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True
 # SECURE_SSL_REDIRECT = True
+
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+#
 # CACHES = {
 #     'default': {
 #         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
