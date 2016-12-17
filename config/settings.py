@@ -47,8 +47,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'adopteitor_core',
     'corsheaders',
-    'multiupload',
-    'sslserver'
+    'multiupload'
 )
 
 
@@ -84,7 +83,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'config.wsgi.application'
+WSGI_APPLICATION = 'adopteitor.wsgi.application'
 
 
 # Database
@@ -168,13 +167,13 @@ LOGGING = {
     }
 }
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'mycache',
-    }
-}
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+#
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION': 'mycache',
+#     }
+# }
