@@ -1,6 +1,18 @@
 from django.db import models
 from datetime import date
 from phonenumber_field.modelfields import PhoneNumberField
+from jsonfield import JSONField
+
+class Ipn(models.Model):
+    id = models.AutoField(primary_key=True)
+    content = JSONField()
+    fecha_creacion = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+    def __unicode__(self):
+        return "[" + str(self.id) + "] " + self.fecha_creacion
+
+    class Meta:
+        verbose_name_plural = "IpnS";
 
 class Subscripcion(models.Model):
     id = models.AutoField(primary_key=True)

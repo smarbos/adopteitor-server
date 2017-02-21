@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Subscripcion
+from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Subscripcion, Ipn
 from rest_framework import serializers
 
 
@@ -36,3 +36,8 @@ class SubscripcionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subscripcion
         fields = ('id', 'email', 'fecha_creacion', 'status', 'external_reference', 'external_reference', 'transaction_amount')
+
+class IpnSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ipn
+        fields = ('id', 'content', 'fecha_creacion')

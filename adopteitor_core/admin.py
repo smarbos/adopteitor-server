@@ -1,8 +1,9 @@
 from django.contrib import admin
 
-from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Subscripcion
+from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Subscripcion, Ipn
 
 admin.site.register(Animal)
 admin.site.register(AnimalFoto)
 admin.site.register(FormularioAdopcion)
 admin.site.register(Subscripcion)
+admin.site.register(Ipn)

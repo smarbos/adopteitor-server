@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User, Group
-from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Subscripcion
+from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Subscripcion, Ipn
 
 from rest_framework import viewsets, generics
-from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer, FormularioAdopcionSerializer, SubscripcionSerializer
+from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer, FormularioAdopcionSerializer, SubscripcionSerializer, IpnSerializer
 from django.http import JsonResponse
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -83,4 +83,17 @@ class SubscripcionViewSet(viewsets.ModelViewSet):
         fields = ('id', 'email', 'fecha_creacion', 'status', 'external_reference', 'external_reference', 'transaction_amount')
     def get_queryset(self):
         queryset = Subscripcion.objects.all()
+        return queryset
+
+class IpnViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows IPNs to be viewed or edited.
+    """
+    queryset = Ipn.objects.all()
+    serializer_class = IpnSerializer
+    class Meta:
+        model = Ipn
+        fields = ('id', 'email', 'fecha_creacion', 'status', 'external_reference', 'external_reference', 'transaction_amount')
+    def get_queryset(self):
+        queryset = Ipn.objects.all()
         return queryset
