@@ -2,6 +2,21 @@ from django.db import models
 from datetime import date
 from phonenumber_field.modelfields import PhoneNumberField
 
+class Subscripcion(models.Model):
+    id = models.AutoField(primary_key=True)
+    email = models.EmailField(max_length=254)
+    fecha_creacion = models.DateTimeField(auto_now=True, auto_now_add=False)
+    status = models.CharField(max_length=255)
+    external_reference = models.CharField(max_length=255)
+    external_reference = models.CharField(max_length=255)
+    transaction_amount = models.CharField(max_length=255)
+
+    def __unicode__(self):
+        return "[" + str(self.id) + "] " + self.email + "(" + str(self.status) + ")"
+
+    class Meta:
+        verbose_name_plural = "Subscripciones";
+
 class Animal(models.Model):
     genero_opciones =  (
     ('m', 'macho'),

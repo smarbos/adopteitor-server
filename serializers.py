@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User, Group
-from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Persona
-
+from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Subscripcion, Persona
 from rest_framework import serializers
 
 
@@ -36,4 +35,9 @@ class FormularioAdopcionSerializer(serializers.HyperlinkedModelSerializer):
 class PersonaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Persona
-        fields = ('id', 'nombre', 'apellido', 'fecha_nacimiento', 'telefono', "email", "ciudad")
+        fields = ('id', 'galgo', 'nombre', 'apellido', 'fecha_nacimiento', 'telefono', "email", "ciudad")
+
+class SubscripcionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscripcion
+        fields = ('id', 'email', 'fecha_creacion', 'status', 'external_reference', 'external_reference', 'transaction_amount')

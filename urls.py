@@ -32,7 +32,7 @@ router.register(r'Persona', views.PersonaViewSet)
 router.register(r'FormularioAdopcion', views.FormularioAdopcionViewSet)
 router.register(r'AdoptarAnimal', views.AdoptarAnimalViewSet)
 router.register(r'accounts', AccountViewSet)
-
+router.register(r'Subscripcion', views.SubscripcionViewSet)
 urlpatterns = [
  url(r'^api/v1/', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),

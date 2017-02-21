@@ -1,9 +1,9 @@
-from django.contrib.auth.models import User, Group
-from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Persona
 from rest_framework import viewsets, generics
-from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer, FormularioAdopcionSerializer, PersonaSerializer
+from django.contrib.auth.models import User, Group
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
+from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Subscripcion, Persona
+from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer, FormularioAdopcionSerializer, SubscripcionSerializer, PersonaSerializer
 User = get_user_model()
 
 
@@ -92,4 +92,17 @@ class AdoptarAnimalViewSet(viewsets.ModelViewSet):
         persona = Persona.objects.get(id=personaID)
         formularioAdopcion = FormularioAdopcion.objects.create(animal=animal, nombre=persona.nombre, apellido=persona.apellido, fecha_nacimiento=persona.fecha_nacimiento, telefono=persona.telefono, email=persona.email, ciudad=persona.ciudad)
         queryset = FormularioAdopcion.objects.filter(id=formularioAdopcion.id)
+        return queryset
+
+class SubscripcionViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Subscripcion.objects.all()
+    serializer_class = SubscripcionSerializer
+    class Meta:
+        model = Subscripcion
+        fields = ('id', 'email', 'fecha_creacion', 'status', 'external_reference', 'external_reference', 'transaction_amount')
+    def get_queryset(self):
+        queryset = Subscripcion.objects.all()
         return queryset
