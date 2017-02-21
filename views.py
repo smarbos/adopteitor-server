@@ -1,9 +1,8 @@
 from django.contrib.auth.models import User, Group
-from adopteitor_core.models import Animal
-from adopteitor_core.models import AnimalFoto
-from adopteitor_core.models import FormularioAdopcion
+from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Subscripcion
+
 from rest_framework import viewsets, generics
-from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer, FormularioAdopcionSerializer
+from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer, FormularioAdopcionSerializer, SubscripcionSerializer
 from django.http import JsonResponse
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -71,4 +70,17 @@ class FormularioAdopcionViewSet(viewsets.ModelViewSet):
         if form_id is not None:
             queryset = FormularioAdopcion.objects.filter(id=form_id)
 
+        return queryset
+
+class SubscripcionViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Subscripcion.objects.all()
+    serializer_class = SubscripcionSerializer
+    class Meta:
+        model = Subscripcion
+        fields = ('id', 'email', 'fecha_creacion', 'status', 'external_reference', 'external_reference', 'transaction_amount')
+    def get_queryset(self):
+        queryset = Subscripcion.objects.all()
         return queryset

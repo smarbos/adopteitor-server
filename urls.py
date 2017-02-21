@@ -25,6 +25,7 @@ router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'Animal', views.AnimalViewSet)
 router.register(r'FormularioAdopcion', views.FormularioAdopcionViewSet)
+router.register(r'Subscripcion', views.SubscripcionViewSet)
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
    url(r'^', include(router.urls)),
