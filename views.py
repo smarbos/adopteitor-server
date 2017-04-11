@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Subscripcion, Ipn
-
+import os, sys
 from rest_framework import viewsets, generics
 from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer, FormularioAdopcionSerializer, SubscripcionSerializer, IpnSerializer
 from django.http import JsonResponse
@@ -56,7 +56,8 @@ class AnimalViewSet(viewsets.ModelViewSet):
         elif galgo_filter == "neuquen":
             queryset = Animal.objects.filter(ubicacion="neuquen")
 
-        return queryset
+        if self.request.user.is_authenticated():
+            return queryset
 
 class FormularioAdopcionViewSet(viewsets.ModelViewSet):
     """
@@ -70,7 +71,8 @@ class FormularioAdopcionViewSet(viewsets.ModelViewSet):
         if form_id is not None:
             queryset = FormularioAdopcion.objects.filter(id=form_id)
 
-        return queryset
+        if self.request.user.is_authenticated():
+            return queryset
 
 class SubscripcionViewSet(viewsets.ModelViewSet):
     """
@@ -83,12 +85,14 @@ class SubscripcionViewSet(viewsets.ModelViewSet):
         fields = ('id', 'email', 'fecha_creacion', 'status', 'external_reference', 'external_reference', 'transaction_amount')
     def get_queryset(self):
         queryset = Subscripcion.objects.all()
-        return queryset
+        if self.request.user.is_authenticated():
+            return queryset
 
 class IpnViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows IPNs to be viewed or edited.
     """
+
     queryset = Ipn.objects.all()
     serializer_class = IpnSerializer
     class Meta:
@@ -96,4 +100,6 @@ class IpnViewSet(viewsets.ModelViewSet):
         fields = ('id', 'email', 'fecha_creacion', 'status', 'external_reference', 'external_reference', 'transaction_amount')
     def get_queryset(self):
         queryset = Ipn.objects.all()
-        return queryset
+        print >> sys.stderr, os.environ.get('ADOPTEITOR_ENV')
+        if self.request.user.is_authenticated():
+            return queryset
