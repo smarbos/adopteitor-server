@@ -1,6 +1,33 @@
 from django.db import models
 from datetime import date
 from phonenumber_field.modelfields import PhoneNumberField
+from jsonfield import JSONField
+
+class Ipn(models.Model):
+    id = models.AutoField(primary_key=True)
+    content = JSONField()
+    fecha_creacion = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+    def __unicode__(self):
+        return "[" + str(self.id) + "] " + self.fecha_creacion
+
+    class Meta:
+        verbose_name_plural = "IpnS";
+
+class Subscripcion(models.Model):
+    id = models.AutoField(primary_key=True)
+    email = models.EmailField(max_length=254)
+    fecha_creacion = models.DateTimeField(auto_now=True, auto_now_add=False)
+    status = models.CharField(max_length=255)
+    external_reference = models.CharField(max_length=255)
+    external_reference = models.CharField(max_length=255)
+    transaction_amount = models.CharField(max_length=255)
+
+    def __unicode__(self):
+        return "[" + str(self.id) + "] " + self.email + "(" + str(self.status) + ")"
+
+    class Meta:
+        verbose_name_plural = "Subscripciones";
 
 class Animal(models.Model):
     genero_opciones =  (
@@ -16,6 +43,10 @@ class Animal(models.Model):
     ('2', 'En Transito'),
     ('3', 'Adoptado')
     )
+    ubicacion_opciones =  (
+    ('buenos-aires', 'Buenos Aires'),
+    ('neuquen', 'Neuquen')
+    )
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=255)
     genero = models.CharField(max_length=1, choices=genero_opciones)
@@ -24,6 +55,7 @@ class Animal(models.Model):
     fecha_ingreso = models.DateTimeField(auto_now=True, auto_now_add=False)
     etapa = models.CharField(max_length=1, choices=etapa_opciones)
     estado = models.CharField(max_length=1, choices=estado_opciones)
+    ubicacion = models.CharField(max_length=255, choices=ubicacion_opciones)
 
     def calcular_edad(self):
         today=date.today();
