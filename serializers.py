@@ -35,7 +35,7 @@ class FormularioAdopcionSerializer(serializers.HyperlinkedModelSerializer):
 class PersonaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Persona
-        fields = ('id', 'galgo', 'nombre', 'apellido', 'fecha_nacimiento', 'telefono', "email", "ciudad")
+        fields = ('id', 'nombre', 'apellido', 'fecha_nacimiento', 'telefono', "email", "ciudad")
 
 class SubscripcionSerializer(serializers.ModelSerializer):
     class Meta:
