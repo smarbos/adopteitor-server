@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User, Group
-from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Persona
-
+from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Subscripcion, Ipn, Persona
 from rest_framework import serializers
 
 
@@ -20,7 +19,7 @@ class AnimalSerializer(serializers.ModelSerializer):
     edad = serializers.IntegerField(source="calcular_edad")
     class Meta:
         model = Animal
-        fields = ('id','nombre', 'genero', 'fecha_nacimiento', 'desc', 'fotos', "fecha_ingreso", "edad", "etapa")
+        fields = ('id','nombre', 'genero', 'fecha_nacimiento', 'desc', 'fotos', "fecha_ingreso", "edad", "etapa", "ubicacion", "estado")
 
 class AnimalFotoSerializer(serializers.ModelSerializer):
     fotos = serializers.StringRelatedField(many=True)
@@ -37,3 +36,13 @@ class PersonaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Persona
         fields = ('id', 'nombre', 'apellido', 'fecha_nacimiento', 'telefono', "email", "ciudad")
+
+class SubscripcionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscripcion
+        fields = ('id', 'email', 'fecha_creacion', 'status', 'external_reference', 'external_reference', 'transaction_amount')
+
+class IpnSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ipn
+        fields = ('id', 'content', 'fecha_creacion')

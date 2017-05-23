@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'corsheaders',
     'multiupload',
     'authentication'
+    # 'sslserver'
 )
 
 
@@ -85,7 +86,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'config.wsgi.application'
+# WSGI_APPLICATION = 'adopteitor.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -167,10 +168,9 @@ LOGGING = {
         },
     }
 }
-
-REST_FRAMEWORK = { 'DEFAULT_PERMISSION_CLASSES': [], 'DEFAULT_AUTHENTICATION_CLASSES': [], }
-
-AUTH_USER_MODEL = 'authentication.Account'
+# REST_FRAMEWORK = { 'DEFAULT_PERMISSION_CLASSES': [], 'DEFAULT_AUTHENTICATION_CLASSES': [], }
+#
+# AUTH_USER_MODEL = 'authentication.Account'
 
 # REST_FRAMEWORK = {
 #     'DEFAULT_PERMISSION_CLASSES': (
@@ -190,3 +190,17 @@ AUTH_USER_MODEL = 'authentication.Account'
 # AUTHENTICATION_BACKENDS = (
 #         'authentication.Account',
 # )
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+#
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION': 'mycache',
+#     }
+# }

@@ -1,9 +1,11 @@
-from django.contrib.auth.models import User, Group
-from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Persona
 from rest_framework import viewsets, generics
-from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer, FormularioAdopcionSerializer, PersonaSerializer
+from django.contrib.auth.models import User, Group
 from django.contrib.auth import get_user_model
+from django.http import JsonResponse
+from adopteitor_core.models import Animal, AnimalFoto, FormularioAdopcion, Subscripcion, Persona, Ipn
+from serializers import UserSerializer, GroupSerializer, AnimalSerializer, AnimalFotoSerializer, FormularioAdopcionSerializer, SubscripcionSerializer, PersonaSerializer, IpnSerializer
 User = get_user_model()
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -28,7 +30,7 @@ class AnimalViewSet(viewsets.ModelViewSet):
     serializer_class = AnimalSerializer
     class Meta:
         model = Animal
-        fields = ('id','nombre', 'genero', 'fecha_nacimiento', 'desc', 'fotos', "fecha_ingreso", "edad", "etapa")
+        fields = ('id','nombre', 'genero', 'fecha_nacimiento', 'desc', 'fotos', "fecha_ingreso", "edad", "etapa", "ubicacion")
     def get_queryset(self):
         queryset = Animal.objects.all()
         galgo_id = self.request.query_params.get('galgo_id', None)
@@ -51,7 +53,10 @@ class AnimalViewSet(viewsets.ModelViewSet):
             queryset = Animal.objects.filter(genero=galgo_filter)
         elif galgo_filter == "*":
             queryset = Animal.objects.all()
-
+        elif galgo_filter == "buenos-aires":
+            queryset = Animal.objects.filter(ubicacion="buenos-aires")
+        elif galgo_filter == "neuquen":
+            queryset = Animal.objects.filter(ubicacion="neuquen")
 
         return queryset
 
@@ -87,4 +92,30 @@ class AdoptarAnimalViewSet(viewsets.ModelViewSet):
         persona = Persona.objects.get(id=personaID)
         formularioAdopcion = FormularioAdopcion.objects.create(animal=animal, nombre=persona.nombre, apellido=persona.apellido, fecha_nacimiento=persona.fecha_nacimiento, telefono=persona.telefono, email=persona.email, ciudad=persona.ciudad)
         queryset = FormularioAdopcion.objects.filter(id=formularioAdopcion.id)
+        return queryset
+
+class SubscripcionViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Subscripcion.objects.all()
+    serializer_class = SubscripcionSerializer
+    class Meta:
+        model = Subscripcion
+        fields = ('id', 'email', 'fecha_creacion', 'status', 'external_reference', 'external_reference', 'transaction_amount')
+    def get_queryset(self):
+        queryset = Subscripcion.objects.all()
+        return queryset
+
+class IpnViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows IPNs to be viewed or edited.
+    """
+    queryset = Ipn.objects.all()
+    serializer_class = IpnSerializer
+    class Meta:
+        model = Ipn
+        fields = ('id', 'email', 'fecha_creacion', 'status', 'external_reference', 'external_reference', 'transaction_amount')
+    def get_queryset(self):
+        queryset = Ipn.objects.all()
         return queryset
