@@ -48,22 +48,9 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'adopteitor_core',
     'corsheaders',
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     'multiupload',
     'authentication'
     # 'sslserver'
-=======
-    'multiupload'
->>>>>>> disabled https
-=======
-    'multiupload',
-    'sslserver'
->>>>>>> disabled https
-=======
-    'multiupload'
->>>>>>> disabled https
 )
 
 
@@ -99,7 +86,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'adopteitor.wsgi.application'
+# WSGI_APPLICATION = 'adopteitor.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
