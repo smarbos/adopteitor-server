@@ -42,6 +42,7 @@ class Animal(models.Model):
     ('1', 'En adopcion'),
     ('2', 'En Transito'),
     ('3', 'Adoptado')
+    )
     ubicacion_opciones =  (
     ('buenos-aires', 'Buenos Aires'),
     ('neuquen', 'Neuquen')
