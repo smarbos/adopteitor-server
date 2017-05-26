@@ -38,6 +38,10 @@ class AnimalViewSet(viewsets.ModelViewSet):
         galgo_etapa = self.request.query_params.get('galgo_etapa', None)
         galgo_filter = self.request.query_params.get('galgo_filter', None)
         galgo_estado = self.request.query_params.get('galgo_estado', None)
+        if galgo_estado is None:
+            queryset = Animal.objects.all()
+        if galgo_estado is not None:
+            queryset = Animal.objects.filter(estado=galgo_estado)
         if galgo_id is not None:
             queryset = Animal.objects.filter(id=galgo_id)
         if galgo_genero is not None:
@@ -58,7 +62,7 @@ class AnimalViewSet(viewsets.ModelViewSet):
             queryset = Animal.objects.filter(ubicacion="buenos-aires")
         elif galgo_filter == "neuquen":
             queryset = Animal.objects.filter(ubicacion="neuquen")
-        return queryset.filter(estado=galgo_estado)
+        return queryset
 
 class PersonaViewSet(viewsets.ModelViewSet):
     queryset = Persona.objects.all()
